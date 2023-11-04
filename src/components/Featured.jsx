@@ -1,14 +1,18 @@
 import styled from "styled-components"
-import { FeaturedProducts } from "../data/index"
+import { Products } from "../data/index"
 import Text from "./styles/Text"
+import Button from "./Button"
+import ProductCard from "./ProductCard.jsx"
+import { Link } from "react-router-dom"
 
 const Wrapper = styled.div`
   display: flex;
   padding: 100px 20px;
-  alignItems: center;
+  align-items: center;
   gap: 20px;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   
   @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: 50px 20px;
@@ -21,7 +25,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    alignItems: center;
+    align-items: center;
     justify-content: center;
     
     @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -29,17 +33,17 @@ const Wrapper = styled.div`
       flex-direction: column;
     }
   }
+  
 `
 const Card = styled.div`
   width: 300px;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 0px 10px #aaa;
-  margin: 0 20px 20px;
+  gap: 20px;
   
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
-    margin: 10px 0;
   }
   
   > img {
@@ -57,6 +61,8 @@ const TopDisc = styled.div`
 `
 
 const Featured = () => {
+  const featuredProducts = Products.filter((product, index) => index == 1 || index == 2 || index == 3 || index == 4 )
+  
   return (
     <Wrapper>
       <Text
@@ -64,31 +70,21 @@ const Featured = () => {
       >Featured Products</Text>
       <div>
         {
-          FeaturedProducts.map((item, index) => (
-            <Card>
-              <img src = {item.image} alt = "" />
-              <div>
-                <TopDisc>
-                  <Text
-                    size = {"20px"}
-                    mb = {"10px"}
-                  >{item.title}</Text>
-                  <Text
-                    color = {"#a0009c"}
-                    size = {"16px"}
-                  >
-                    ${item.price}
-                  </Text>
-                </TopDisc>
-                <Text
-                  size = {"14px"}
-                  weight = {400}
-                >{item.description}</Text>
-              </div>
-            </Card>
+          featuredProducts.map((item, index) => (
+            <ProductCard
+              item = {item}
+            />
           ))
         }
       </div>
+      <Button
+        as = {Link}
+        to = {"/store"}
+        margin = {"20px"}
+        color = {"#000"}
+      >
+        Visit Store
+      </Button>
     </Wrapper>
   )
 }

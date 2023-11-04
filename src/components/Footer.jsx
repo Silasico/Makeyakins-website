@@ -1,12 +1,12 @@
 import styled from "styled-components"
 import Text from "./styles/Text"
-import { NavItems } from "../data/index"
+import { NavItems, social } from "../data/index"
+import { Link } from "react-router-dom"
 
 const FooterCont = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 50px;;
   background-color: #fff;
   background-image: linear-gradient(to right, #a0009c, #ff82b2);
   
@@ -23,6 +23,7 @@ const FooterCont = styled.div`
   
     @media (max-width: ${({ theme }) => theme.mobile}) {
       width: 100%;
+      padding-bottom: 20px;
     }
   }
 `
@@ -45,11 +46,21 @@ const NavLinks = styled.div`
     color: #fff;
     font-size: 14px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 0.5px solid #fff;
+    
     
     @media (max-width: ${({ theme }) => theme.mobile}) {
       padding: 5px 0;
       width: 100%;
+    }
+    
+    > img {
+      width: 20px;
+      height: 20px;
+      
     }
   }
 `
@@ -58,11 +69,33 @@ const Footer = () => {
   return (
     <FooterCont>
       <div>
-        <Text>Quick Links</Text>
+        <Text
+          size = {"20px"}
+        >Quick Links</Text>
         <NavLinks>
           {
             NavItems.map(item => (
+              <Link to = {item.path}>
+                <Text
+                  weight = {400}
+                >{item.label}</Text>
+              </Link>
+            ))
+          }
+          
+        </NavLinks>
+      </div>
+      <div>
+        <Text
+          size = {"20px"}
+        >Contact us</Text>
+        <NavLinks>
+          {
+            social.map(item => (
               <a href = {item.link}>
+                <img
+                  src = {item.imgWhite}
+                />
                 <Text
                   weight = {400}
                 >{item.label}</Text>

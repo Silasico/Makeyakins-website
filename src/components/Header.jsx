@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Text from "./styles/Text"
 import { NavItems } from "../data"
 import logo from "../assets/images/Logo.jpg"
+import { NavLink } from "react-router-dom"
 
 const Nav = styled.nav`
   display: flex;
@@ -10,6 +11,7 @@ const Nav = styled.nav`
   padding: 20px;
   background-color: #fff;
   background-image: #fff;
+  box-shadow: 0 0 10px #ccc;
   
   @media(max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
@@ -40,7 +42,6 @@ const NavLinks = styled.div`
   > a {
     font-size: 14px;
     text-decoration: none;
-    margin-left: 20px;
     
     @media (max-width: ${({ theme }) => theme.mobile}) {
       padding: 5px 0;
@@ -56,17 +57,17 @@ const NavToggle = styled.div`
   justify-content: space-between;
   flex: 1;
   
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      width: 100%;
-    }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100%;
+  }
+  
+  p {
+    color: #000;
     
-    p {
-      color: #000;
-      
-      @media (min-width: ${({ theme }) => theme.mobile}) {
-        display: none;
-      }
+    @media (min-width: ${({ theme }) => theme.mobile}) {
+      display: none;
     }
+  }
 `
 const Logo = styled.img`
   width: 50px;
@@ -105,7 +106,7 @@ const Toggle = styled.div`
 `
 
 const Header = ({ isNavbarOpen, setIsNavbarOpen }) => {
-  console.log(Text)
+  
   return (
     <div>
       <Nav>
@@ -123,14 +124,18 @@ const Header = ({ isNavbarOpen, setIsNavbarOpen }) => {
         >
           {
             NavItems.map(item => (
-              <a href = {item.link}>
+              <NavLink 
+                to = {item.path} 
+                key = {item.label}
+                onClick = {() => setIsNavbarOpen(false)}
+              >
                 <Text
                   weight = {400}
                   mb = {"10px"}
                   mt = {"10px"}
                   
                 >{item.label}</Text>
-              </a>
+              </NavLink>
             ))
           }
           

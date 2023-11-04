@@ -2,6 +2,7 @@ import styled from "styled-components"
 import farmImg from "../assets/images/farm.jpg"
 import Button from "./Button"
 import Text from "./styles/Text"
+import { Link } from "react-router-dom"
 
 const BannerContainer = styled.div`
   background-image: linear-gradient(to right, rgb(0,0,0,0.8), rgb(0,0,0,0.8)), url(${farmImg});
@@ -47,7 +48,8 @@ const Banner = () => {
         We are an international multi-concept company providing goods across the world
       </Text>
       <Button 
-        href= ""
+        as = {Link}
+        to= "/about"
         bg = {"#a0009c"}
         color = {"#fff"}
       >
