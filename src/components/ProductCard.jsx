@@ -16,7 +16,7 @@ const Card = styled.a`
   
   > img {
     width: 100%;
-    height: 200px;
+    height: 250px;
   }
   > div {
     padding: 20px;
@@ -41,12 +41,7 @@ const ProductCard = ({ item }) => {
             size = {"20px"}
             mb = {"10px"}
           >{item.title}</Text>
-          <Text
-            color = {"#a0009c"}
-            size = {"16px"}
-          >
-            ${item.price}
-          </Text>
+        
         </TopDisc>
         <Text
           size = {"14px"}

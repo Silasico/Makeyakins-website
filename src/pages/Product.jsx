@@ -25,6 +25,7 @@ const Head = styled.div`
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #000;
+  margin-bottom: 16px;
 `
 
 const Body = styled.div`
@@ -39,7 +40,7 @@ const Body = styled.div`
 
 
 const submitLink = (title, description, price) => {
-  return `https://wa.me/2347081529836?text=%2AHello%20Makeyakins%2A%0A%0A%2A📌%20Product%3A%2A%20${title.replaceAll(" ", "%20")}"%0A%0A%2A📌%20Description%3A%2A%20${description.replaceAll(" ", "%20")}%0A%0A%2A📌%20Price%3A%2A%20${price.replaceAll(" ", "%20")}`
+  return `https://wa.me/2347081529836?text=%2AHello%20Makeyakins%2A%0A%0A%2A📌%20Product%3A%2A%20${title.replaceAll(" ", "%20")}"%0A%0A%2A📌%20Description%3A%2A%20${description.replaceAll(" ", "%20")}`
 }
 
 const Product = () => {
@@ -66,9 +67,6 @@ const Product = () => {
           <Text
             size = {"24px"}
           >{selectedProduct.title}</Text>
-          <Text
-            size = {"18px"}
-          >₦{selectedProduct.price}</Text>
         </Head>
         <Body>
           <Text
@@ -80,6 +78,8 @@ const Product = () => {
           </Text>
           <Button
             onClick = {() => location.assign(submitLink(selectedProduct.title, selectedProduct.description, selectedProduct.price))}
+            bg = {"#a0009c"}
+            color = {"#fff"}
           >
             Proceed to order
           </Button>

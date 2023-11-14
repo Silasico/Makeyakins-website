@@ -61,7 +61,13 @@ const About = () => {
           weight = {400}
           lineHeight = {"2em"}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sun.t in culpa qui officia deserunt mollit anim id est laborum."
+          Welcome to Makeyakins Multi Concept Nigeria Limited , where we cultivate excellence and harvest quality. As a premier agricultural produce exporting company, we take pride in delivering the finest fruits, vegetables, and grains from our farms to your table.
+          <br />
+          <br />
+          At the heart of our mission is a commitment to sustainable farming practices, ensuring the well-being of both the land and the communities we serve. From the lush orchards to the verdant fields, our dedication to environmental responsibility shines through in every aspect of our operation.
+          <br />
+          <br />
+          What sets us apart is not just the abundance of our harvest but the meticulous care we invest in each crop. Our team of skilled farmers and agronomists work in harmony with nature, employing cutting-edge techniques to produce premium, pesticide-free yields.
         </Text>
       </div>
       <div>
@@ -73,7 +79,10 @@ const About = () => {
           weight = {400}
           lineHeight = {"2em"}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          From the moment our produce is harvested, a seamless process begins to bring it to your doorstep. Our state-of-the-art facilities prioritize freshness and quality control, guaranteeing that every shipment maintains the peak of its flavor and nutritional value.
+          <br />
+          <br />
+          Whether you're a local market or an international distributor, we are your trusted partner in providing farm-fresh goodness. Join us on a journey where passion meets productivity, and together, we cultivate a world of nourishment and sustainability.
         </Text>
       </div>
     </Wrapper>

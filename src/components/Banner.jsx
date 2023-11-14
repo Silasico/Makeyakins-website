@@ -40,12 +40,14 @@ const Banner = () => {
       <Text
         size = {"32px"}
         align = {"center"}
-      >Welcome to Makeyakins Ltd.</Text>
+      >
+        Welcome to Makeyakins Multi Concept Nigeria Limited
+      </Text>
       <Text
         align = "center"
         weight = {500}
       >
-        We are an international multi-concept company providing goods across the world
+        We cultivate excellence and harvest quality. As a premier agricultural produce exporting company, we take pride in delivering the finest fruits, vegetables, and grains from our farms to your table.
       </Text>
       <Button 
         as = {Link}
