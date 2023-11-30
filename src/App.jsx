@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { lazy, Suspense, useState } from "react"
 import { ThemeProvider } from "styled-components"
-import { BrowserRouter, Routes, Route} from "react-router-dom"
+import { HashRouter, Routes, Route } from "react-router-dom"
 import MainPanel from "./components/MainPanel"
+
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Contact from "./pages/Contact"
@@ -15,7 +16,7 @@ const theme = {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ThemeProvider theme = {theme}>
         <MainPanel>
           <Routes>
@@ -25,10 +26,9 @@ const App = () => {
             <Route path = {"/store"} element = {<Store />} />
             <Route path = {"/product/:id"} element = {<Product />} />
           </Routes>
-          
         </MainPanel>
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 export default App

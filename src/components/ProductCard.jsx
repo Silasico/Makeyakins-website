@@ -9,6 +9,7 @@ const Card = styled.a`
   box-shadow: 0px 0px 10px #aaa;
   gap: 20px;
   text-decoration: none;
+  padding-bottom: 10px;
   
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
@@ -29,6 +30,9 @@ const TopDisc = styled.div`
 `
 
 const ProductCard = ({ item }) => {
+  const maxLines = 5;
+  const lineHeight = 1.4;
+  
   return (
     <Card
       as = {Link}
@@ -46,6 +50,12 @@ const ProductCard = ({ item }) => {
         <Text
           size = {"14px"}
           weight = {400}
+          style = {{
+            height: maxLines * 14 * lineHeight,
+            lineHeight: lineHeight,
+            position: "relative",
+            overflow: "hidden",
+          }}
         >{item.description}</Text>
       </div>
     </Card>
