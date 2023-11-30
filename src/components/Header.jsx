@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Text from "./styles/Text"
 import { NavItems } from "../data"
 import logo from "../assets/images/Logo.jpg"
@@ -77,8 +77,9 @@ const Logo = styled.img`
 const Toggle = styled.div`
   width: 30px;
   height: 2px;
-  background-color: #000;
+  background-color: ${({isNavbarOpen}) => isNavbarOpen ? "#fff" : "#000"};
   position: relative;
+ 
   
   &:before {
     content: "";
@@ -88,6 +89,9 @@ const Toggle = styled.div`
     width: 30px;
     height: 2px;
     background-color: #000;
+    animation-name: ${({isNavbarOpen}) => isNavbarOpen && rotateBefore};
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
   }
   
   &:after {
@@ -98,10 +102,38 @@ const Toggle = styled.div`
     width: 30px;
     height: 2px;
     background-color: #000;
+    animation-name: ${({isNavbarOpen}) => isNavbarOpen && rotateAfter};
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
   }
   
   @media (min-width: ${({ theme }) => theme.mobile}) {
     display: none;
+  }
+`
+const rotateBefore = keyframes`
+  from {
+    transform: rotate(0deg);
+    top: -10px;
+  } to {
+    transform: rotate(-45deg);
+    top: 0px;
+  }
+`
+const rotateAfter = keyframes`
+  from {
+    transform: rotate(0deg);
+    top: 10px;
+  } to {
+    transform: rotate(45deg);
+    top: 0px;
+  }
+`
+const rotateNormal = keyframes`
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(45deg);
   }
 `
 
@@ -117,6 +149,7 @@ const Header = ({ isNavbarOpen, setIsNavbarOpen }) => {
           />
           <Toggle 
             onClick = {() => setIsNavbarOpen(!isNavbarOpen)}
+            isNavbarOpen = {isNavbarOpen}
           />
         </NavToggle>
         <NavLinks
